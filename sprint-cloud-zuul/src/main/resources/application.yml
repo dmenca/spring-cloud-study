@@ -1,0 +1,25 @@
+server:
+  port: 10500
+
+spring:
+  # mysql
+  datasource:
+    name: test
+    url: jdbc:mysql://10.111.32.69:10208/${spring.datasource.db}?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true
+    db: senseface
+    username: root
+    password: 2019IVAmysqlP@ssword
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 300000
+    minEvictableIdleTimeMillis: 3600000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
