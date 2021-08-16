@@ -1,0 +1,15 @@
+server:
+  port: 9092
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: spring-cloud-consumer-server
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:9090/eureka/

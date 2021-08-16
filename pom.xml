@@ -6,6 +6,8 @@
     <modules>
         <module>sprint-cloud-zuul</module>
         <module>spring-cloud-eureka-server</module>
+        <module>spring-cloud-eureka-client</module>
+        <module>spring-cloud-consumer-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -23,6 +25,7 @@
         <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
         <spring-cloud-starter-netflix-zuul.version>2.2.0.RELEASE</spring-cloud-starter-netflix-zuul.version>
         <spring-cloud-starter-netflix-eureka-server.version>2.2.6.RELEASE</spring-cloud-starter-netflix-eureka-server.version>
+        <spring-cloud-starter-netflix-eureka-client.version>2.2.6.RELEASE</spring-cloud-starter-netflix-eureka-client.version>
     </properties>
     <dependencies>
         <dependency>
@@ -54,6 +57,11 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
                 <version>${spring-cloud-starter-netflix-eureka-server.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring-cloud-starter-netflix-eureka-client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
