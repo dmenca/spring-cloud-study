@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>com.caoan</groupId>
-  <artifactId>sprint-cloud-eureka-client</artifactId>
+  <artifactId>spring-cloud-order-provider-service</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>sprint-cloud-eureka-client</name>

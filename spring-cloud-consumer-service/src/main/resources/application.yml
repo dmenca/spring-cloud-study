@@ -13,3 +13,53 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://${eureka.instance.hostname}:9090/eureka/
+
+
+# 开启Fegin对熔断器的支持
+#当我们开启熔断器后，Feign里面的方法都会被进行管理，一旦出现熔断，就会服务降级，也就是执行咱们的服务降级方法fallback方法。
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            # 配置熔断器的超时时间，我这里配置了12s
+            timeoutInMilliseconds: 12000
+
+## 单独对这个spring-cloud-order-service-provider 服务的调用生效，如果想配置全局生效的话可以不用写这个服务名，
+#spring-cloud-order-service-provider:
+#  ribbon:
+#    # 这个是连接超时时间
+#    ConnectTimeout: 1000
+#    # 这个是服务处理请求超时时间
+#    ReadTimeout: 5000
+#    # 对所有的操作进行重试工作
+#    OkToRetryOnAllOperations: true
+#    # 当超时的时候，最大重试次数，这里是设置了3次，不包含第一次请求那次 ，这个请求重试是在超时服务上试
+#    MaxAutoRetries: 2
+#    # 如果在调用当前服务重试次数没了，就换个服务
+#    MaxAutoRetriesNextServer: 1
+#    #负载均衡策略
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+# 单独对这个spring-cloud-order-service-provider 服务的调用生效，如果想配置全局生效的话可以不用写这个服务名，
+
+spring-cloud-client-provider:
+  ribbon:
+    # 这个是连接超时时间
+    ConnectTimeout: 5000
+    # 这个是服务处理请求超时时间
+    ReadTimeout: 5000
+    # 对所有的操作进行重试工作
+    OkToRetryOnAllOperations: false
+    # 当超时的时候，最大重试次数，这个请求重试是在超时服务上试 , 这里是设置了0次,就是不进行重试
+    MaxAutoRetries: 0
+    # 如果在调用当前服务重试次数没了，就换个服务
+    MaxAutoRetriesNextServer: 0
+    #负载均衡策略
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
